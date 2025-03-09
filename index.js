@@ -2,14 +2,20 @@
 
 // 1. Create a variable to store the singleton instance of the bank branch. "bankBranchInstance"
 
+
 // 2. Define a class called `BankBranch` for managing branch information.
 class BankBranch {
     constructor(branchInfo) {
         if (bankBranchInstance.instance == null) {
-            bankBranchInstance.instance = branchInfo
+            bankBranchInstance = new BankBranch(branchInfo);
         }
-    return bankBranchInstance.instance
+    return bankBranchInstance
 
+    }
+    getBranchInfo(branchCode, opHours, branchAddress ) {
+        this.branchCode = branchCode;
+        this.opHours = opHours;
+        this.branchAddress = branchAddress
     }
 }
 
