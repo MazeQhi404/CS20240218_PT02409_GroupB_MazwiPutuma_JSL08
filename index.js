@@ -2,20 +2,23 @@
 
 // 1. Create a variable to store the singleton instance of the bank branch. "bankBranchInstance"
 
+// const bankBranchInstance = BankBranch.instance ( number 1's solution)
 
 // 2. Define a class called `BankBranch` for managing branch information.
 class BankBranch {
+    static instance;
+
     constructor(branchInfo) {
-        if (bankBranchInstance.instance == null) {
-            bankBranchInstance = new BankBranch(branchInfo);
+        if (BankBranch.instance == null) {
+            BankBranch.instance = this;
         }
-    return bankBranchInstance
+    return BankBranch.instance;
 
     }
     getBranchInfo(branchCode, opHours, branchAddress ) {
         this.branchCode = branchCode;
         this.opHours = opHours;
-        this.branchAddress = branchAddress
+        this.branchAddress = branchAddress;
     }
 }
 
@@ -31,6 +34,14 @@ class BankBranch {
 //    - Create instances of the `BankBranch` class, such as `branchA` and `branchB`, with different branch information.
 //    - Use the `getBranchInfo` method to retrieve branch information from the instances.
 //    - Verify that `branchA` and `branchB` are both referring to the same instance by comparing them using `===`.
+
+const branchA = BankBranch.getBranchInfo();
+
+const branchB = BankBranch.getBranchInfo(767584,"8:00-18:00","95 RoyalHours Street");
+
+if (branchA === branchB) {
+    console.log("Both branches refer to the same instance")
+}
 
 // This pseudo-code provides a step-by-step explanation of how to implement the Singleton Pattern for managing a single instance of the `BankBranch` class throughout the application, ensuring that multiple instances refer to the same object.
 
